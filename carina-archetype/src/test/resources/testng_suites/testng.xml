@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="/Users/anatoliiyakubyshyn/Documents/android_native/Swag-Labs-/carina-archetype/src/test/java/com/solvd/carina/swaglabs/LoginTest.java"><classes><class name="com.solvd.carina.swaglabs.LoginTest"><methods><include name="testStandardUserWithoutAutoFilling"/></methods></class></classes></test></suite>

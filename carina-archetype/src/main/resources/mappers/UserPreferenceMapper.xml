@@ -1,7 +1,7 @@
 <?xml version="1.0-SNAPSHOT" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.zebrunner.carina.demo.db.mappers.UserPreferenceMapper">
+<mapper namespace="com.solvd.carina.demo.db.mappers.UserPreferenceMapper">
 
 	<insert id="create" useGeneratedKeys="true"
 		keyProperty="id">

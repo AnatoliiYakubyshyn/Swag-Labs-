@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.zebrunner</groupId>
+	<groupId>com.solvd</groupId>
 	<artifactId>carina-archetype</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
@@ -21,7 +21,7 @@
 		<carina-appcenter.version>1.1.4</carina-appcenter.version>
 		<java.version>11</java.version>
 		<zebrunner-agent.version>1.9.6</zebrunner-agent.version>
-		<suite>helloWorld</suite>
+		<suite>testng</suite>
 	</properties>
 
 	<repositories>
