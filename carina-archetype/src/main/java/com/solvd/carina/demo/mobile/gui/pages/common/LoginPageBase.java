@@ -22,6 +22,8 @@ public abstract class LoginPageBase extends AbstractPage implements IMobileUtils
 
     protected abstract ExtendedWebElement getAutoFillingOption(UserType type);
 
+    protected abstract ExtendedWebElement getMessageElement();
+
     public ProductsPageBase login(UserType userType, boolean useAutoFilling) {
         if (!useAutoFilling) {
             getUserNameField().type(UserService.getUser(userType).getUsername());
@@ -31,6 +33,11 @@ public abstract class LoginPageBase extends AbstractPage implements IMobileUtils
             getAutoFillingOption(userType).click();
         }
         getLoginBtn().click();
+        swipeDown(3,1000);
         return initPage(ProductsPageBase.class);
+    }
+
+    public boolean isMessageDisplayed(String text) {
+        return getMessageElement().format(text).isPresent();
     }
 }

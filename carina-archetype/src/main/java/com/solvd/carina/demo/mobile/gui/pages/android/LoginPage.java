@@ -28,6 +28,9 @@ public class LoginPage extends LoginPageBase {
     @FindBy(xpath = "//android.view.ViewGroup[@content-desc='test-%s']/android.widget.TextView")
     private ExtendedWebElement autoFillingOption;
 
+    @FindBy(xpath = "//android.widget.TextView[@text='%s']")
+    private ExtendedWebElement messageElement;
+
     public LoginPage(WebDriver driver) {
         super(driver);
     }

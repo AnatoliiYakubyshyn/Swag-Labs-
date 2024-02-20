@@ -18,6 +18,12 @@ public class LoginTest extends AbstractTest {
         Assert.assertTrue(productsPageBase.isPageOpened(),"Product page is not opened");
     }
 
+    private void testLockedOutUser(boolean useAutoFilling) {
+        LoginPageBase loginPageBase = initPage(LoginPageBase.class);
+        loginPageBase.login(UserType.LOCKED_OUT,useAutoFilling);
+        Assert.assertTrue(loginPageBase.isMessageDisplayed("Sorry, this user has been locked out."));
+    }
+
     @Test
     @TestCaseKey("AYA-1")
     public void testStandardUserWithoutAutoFilling() {
@@ -28,5 +34,17 @@ public class LoginTest extends AbstractTest {
     @TestCaseKey("AYA-2")
     public void testStandardUserWithAutoFilling() {
        testStandardUser(true);
+    }
+
+    @Test
+    @TestCaseKey("AYA-3")
+    public void testLockedOutUserWithAutoFilling() {
+        testLockedOutUser(true);
+    }
+
+    @Test
+    @TestCaseKey("AYA-4")
+    public void testLockedOutUserWithOutAutoFilling() {
+        testLockedOutUser(false);
     }
 }

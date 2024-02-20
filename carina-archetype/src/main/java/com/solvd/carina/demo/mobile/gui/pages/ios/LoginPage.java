@@ -28,6 +28,9 @@ public class LoginPage extends LoginPageBase {
     @ExtendedFindBy(accessibilityId = "test-%s")
     private ExtendedWebElement autoFillingOption;
 
+    @ExtendedFindBy(iosPredicate = "label == '%s'")
+    private ExtendedWebElement messageElement;
+
     public LoginPage(WebDriver driver) {
         super(driver);
     }
