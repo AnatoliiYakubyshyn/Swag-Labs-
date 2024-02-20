@@ -11,11 +11,22 @@ import com.zebrunner.carina.core.AbstractTest;
 
 public class LoginTest extends AbstractTest {
 
+
+    private void testStandardUser(boolean useAutoFilling) {
+        LoginPageBase loginPageBase = initPage(LoginPageBase.class);
+        ProductsPageBase productsPageBase = loginPageBase.login(UserType.STANDARD,useAutoFilling);
+        Assert.assertTrue(productsPageBase.isPageOpened(),"Product page is not opened");
+    }
+
     @Test
     @TestCaseKey("AYA-1")
     public void testStandardUserWithoutAutoFilling() {
-        LoginPageBase loginPageBase = initPage(LoginPageBase.class);
-        ProductsPageBase productsPageBase = loginPageBase.login(UserType.STANDARD,false);
-        Assert.assertTrue(productsPageBase.isPageOpened(),"Product page is not opened");
+        testStandardUser(false);
+    }
+
+    @Test
+    @TestCaseKey("AYA-2")
+    public void testStandardUserWithAutoFilling() {
+       testStandardUser(true);
     }
 }

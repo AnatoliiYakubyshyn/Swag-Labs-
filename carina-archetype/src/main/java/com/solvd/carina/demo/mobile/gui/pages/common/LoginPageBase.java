@@ -6,8 +6,9 @@ import com.solvd.carina.demo.mobile.enums.UserType;
 import com.solvd.carina.demo.mobile.services.UserService;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
+import com.zebrunner.carina.utils.mobile.IMobileUtils;
 
-public abstract class LoginPageBase extends AbstractPage {
+public abstract class LoginPageBase extends AbstractPage implements IMobileUtils {
 
     public LoginPageBase(WebDriver driver) {
         super(driver);
@@ -26,6 +27,7 @@ public abstract class LoginPageBase extends AbstractPage {
             getUserNameField().type(UserService.getUser(userType).getUsername());
             getPasswordField().type(UserService.getUser(userType).getPassword());
         } else {
+            swipeUp(3,1000);
             getAutoFillingOption(userType).click();
         }
         getLoginBtn().click();
