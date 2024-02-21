@@ -6,7 +6,9 @@ public enum UserType {
 
     LOCKED_OUT("locked_out"),
 
-    PROBLEM("problem");
+    PROBLEM("problem"),
+
+    INVALID("invalid");
 
     private final String value;
 

@@ -14,13 +14,13 @@ public class LoginTest extends AbstractTest {
 
     private void testStandardUser(boolean useAutoFilling) {
         LoginPageBase loginPageBase = initPage(LoginPageBase.class);
-        ProductsPageBase productsPageBase = loginPageBase.login(UserType.STANDARD,useAutoFilling);
-        Assert.assertTrue(productsPageBase.isPageOpened(),"Product page is not opened");
+        ProductsPageBase productsPageBase = loginPageBase.login(UserType.STANDARD, useAutoFilling);
+        Assert.assertTrue(productsPageBase.isPageOpened(), "Product page is not opened");
     }
 
     private void testLockedOutUser(boolean useAutoFilling) {
         LoginPageBase loginPageBase = initPage(LoginPageBase.class);
-        loginPageBase.login(UserType.LOCKED_OUT,useAutoFilling);
+        loginPageBase.login(UserType.LOCKED_OUT, useAutoFilling);
         Assert.assertTrue(loginPageBase.isMessageDisplayed("Sorry, this user has been locked out."));
     }
 
@@ -33,7 +33,7 @@ public class LoginTest extends AbstractTest {
     @Test
     @TestCaseKey("AYA-2")
     public void testStandardUserWithAutoFilling() {
-       testStandardUser(true);
+        testStandardUser(true);
     }
 
     @Test
@@ -46,5 +46,13 @@ public class LoginTest extends AbstractTest {
     @TestCaseKey("AYA-4")
     public void testLockedOutUserWithOutAutoFilling() {
         testLockedOutUser(false);
+    }
+
+    @Test
+    @TestCaseKey("AYA-5")
+    public void testInvalidUserErrorMessage() {
+        LoginPageBase loginPageBase = initPage(LoginPageBase.class);
+        loginPageBase.login(UserType.INVALID, false);
+        Assert.assertTrue(loginPageBase.isMessageDisplayed("Username and password do not match any user in this service."));
     }
 }
