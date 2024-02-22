@@ -11,14 +11,14 @@ import com.zebrunner.carina.core.AbstractTest;
 
 public class LoginTest extends AbstractTest {
 
-
-    private void testStandardUser(boolean useAutoFilling) {
+    public ProductsPageBase testStandardUser(boolean useAutoFilling) {
         LoginPageBase loginPageBase = initPage(LoginPageBase.class);
         ProductsPageBase productsPageBase = loginPageBase.login(UserType.STANDARD, useAutoFilling);
         Assert.assertTrue(productsPageBase.isPageOpened(), "Product page is not opened");
+        return productsPageBase;
     }
 
-    private void testLockedOutUser(boolean useAutoFilling) {
+    public void testLockedOutUser(boolean useAutoFilling) {
         LoginPageBase loginPageBase = initPage(LoginPageBase.class);
         loginPageBase.login(UserType.LOCKED_OUT, useAutoFilling);
         Assert.assertTrue(loginPageBase.isMessageDisplayed("Sorry, this user has been locked out."));
@@ -55,4 +55,6 @@ public class LoginTest extends AbstractTest {
         loginPageBase.login(UserType.INVALID, false);
         Assert.assertTrue(loginPageBase.isMessageDisplayed("Username and password do not match any user in this service."));
     }
+
+
 }

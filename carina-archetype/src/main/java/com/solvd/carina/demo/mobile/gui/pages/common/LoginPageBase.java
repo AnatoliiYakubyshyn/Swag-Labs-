@@ -29,12 +29,12 @@ public abstract class LoginPageBase extends AbstractPage implements IMobileUtils
             getUserNameField().type(UserService.getUser(userType).getUsername());
             getPasswordField().type(UserService.getUser(userType).getPassword());
         } else {
-            swipeUp(3,1000);
+            swipeUp(3, 1000);
             getAutoFillingOption(userType).click();
         }
         getLoginBtn().click();
-        swipeDown(3,1000);
-        return initPage(ProductsPageBase.class);
+        swipeDown(3, 1000);
+        return initPage(getDriver(), ProductsPageBase.class);
     }
 
     public boolean isMessageDisplayed(String text) {
