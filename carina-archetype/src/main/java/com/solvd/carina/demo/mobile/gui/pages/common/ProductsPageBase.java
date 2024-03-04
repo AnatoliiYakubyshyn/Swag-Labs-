@@ -1,6 +1,5 @@
 package com.solvd.carina.demo.mobile.gui.pages.common;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
@@ -13,7 +12,7 @@ import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
 
-public abstract class ProductsPageBase extends AbstractPage implements IMobileUtils {
+public abstract class ProductsPageBase extends AbstractPage implements IMobileUtils, ICommonContent {
 
     public ProductsPageBase(WebDriver driver) {
         super(driver);

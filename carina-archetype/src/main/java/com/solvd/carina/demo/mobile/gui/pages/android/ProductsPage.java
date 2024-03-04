@@ -1,24 +1,24 @@
 package com.solvd.carina.demo.mobile.gui.pages.android;
 
-import com.solvd.carina.demo.mobile.pojo.Item;
 import lombok.AccessLevel;
 import lombok.Getter;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-import com.solvd.carina.demo.mobile.gui.components.android.SortingComponent;
-import com.solvd.carina.demo.mobile.gui.components.android.ItemComponent;
-import com.solvd.carina.demo.mobile.gui.pages.common.ProductsPageBase;
-import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
-import com.zebrunner.carina.utils.factory.DeviceType;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import com.solvd.carina.demo.mobile.gui.components.android.SortingComponent;
+import com.solvd.carina.demo.mobile.gui.components.android.ItemComponent;
+import com.solvd.carina.demo.mobile.gui.pages.common.ProductsPageBase;
+import com.solvd.carina.demo.mobile.pojo.Item;
+import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
+import com.zebrunner.carina.utils.factory.DeviceType;
+
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = ProductsPageBase.class)
 @Getter(AccessLevel.PROTECTED)
-public class ProductsPage extends ProductsPageBase {
+public class ProductsPage extends ProductsPageBase implements IAndroidCommonContentPages {
 
     @FindBy(xpath = "//android.widget.TextView[@text='PRODUCTS']")
     private ExtendedWebElement marker;
