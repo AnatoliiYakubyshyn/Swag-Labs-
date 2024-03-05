@@ -1,5 +1,7 @@
 package com.solvd.carina.demo.mobile.gui.components.android;
 
+import com.solvd.carina.demo.mobile.gui.pages.android.ChoosePageBase;
+import com.solvd.carina.demo.mobile.gui.pages.common.ChoosePagePageBase;
 import lombok.AccessLevel;
 import lombok.Getter;
 
@@ -24,5 +26,10 @@ public class HeaderMenu extends HeaderMenuBase {
     @Override
     protected ExtendedWebElement getCartIcon() {
         throw new NotImplementedException();
+    }
+
+    @Override
+    protected ChoosePagePageBase getPage() {
+        return new ChoosePageBase(getDriver());
     }
 }
