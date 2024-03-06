@@ -17,7 +17,7 @@ import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 @Getter(AccessLevel.PROTECTED)
 public class HeaderMenu extends HeaderMenuBase {
 
-    @FindBy(xpath = "//XCUIElementTypeOther[@name='test-Menu']/..")
+    @FindBy(xpath = "//XCUIElementTypeOther[@name='test-Menu']")
     private ExtendedWebElement hamburgerIcon;
 
     public HeaderMenu(WebDriver driver, SearchContext searchContext) {

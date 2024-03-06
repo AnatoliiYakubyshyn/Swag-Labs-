@@ -1,12 +1,16 @@
 package com.solvd.carina.demo.utils;
 
 import java.lang.invoke.MethodHandles;
+import java.time.Duration;
 import java.util.Set;
 
+import com.zebrunner.carina.utils.config.Configuration;
+import com.zebrunner.carina.webdriver.config.WebDriverConfiguration;
 import org.openqa.selenium.ContextAware;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.decorators.Decorated;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,7 +33,12 @@ public class MobileContextUtils implements IDriverPool {
         return driver;
     }
 
-    public void switchMobileContext(View context){
+    private void waitForMoreThanOneContextToAppear(WebDriver driver, DriverHelper help) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(Configuration.get(WebDriverConfiguration.Parameter.EXPLICIT_TIMEOUT).get())));
+        wait.until(input -> help.performIgnoreException(((ContextAware) driver)::getContextHandles).size() > 1);
+    }
+
+    public void switchMobileContext(View context) {
         switchMobileContext(context, null);
     }
 
@@ -42,7 +51,7 @@ public class MobileContextUtils implements IDriverPool {
         LOGGER.info("Existing contexts: ");
         for (String cont : contextHandles) {
             if (cont.contains(context.getView())) {
-                if (exclude != null && cont.contains(exclude.getView())){
+                if (exclude != null && cont.contains(exclude.getView())) {
                     continue;
                 }
                 desiredContext = cont;

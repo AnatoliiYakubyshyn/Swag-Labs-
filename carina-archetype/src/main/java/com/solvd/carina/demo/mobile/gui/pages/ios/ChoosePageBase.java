@@ -1,11 +1,20 @@
 package com.solvd.carina.demo.mobile.gui.pages.ios;
 
-import com.solvd.carina.demo.mobile.gui.pages.common.ChoosePagePageBase;
-import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
+import lombok.AccessLevel;
+import lombok.Getter;
+
 import org.apache.commons.lang3.NotImplementedException;
 import org.openqa.selenium.WebDriver;
 
+import com.solvd.carina.demo.mobile.gui.pages.common.ChoosePagePageBase;
+import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
+import com.zebrunner.carina.webdriver.locator.ExtendedFindBy;
+
+@Getter(AccessLevel.PROTECTED)
 public class ChoosePageBase extends ChoosePagePageBase {
+
+    @ExtendedFindBy(accessibilityId = "test-%s")
+    private ExtendedWebElement pageOption;
 
     public ChoosePageBase(WebDriver driver) {
         super(driver);
@@ -13,11 +22,6 @@ public class ChoosePageBase extends ChoosePagePageBase {
 
     @Override
     protected ExtendedWebElement getDagger() {
-        throw new NotImplementedException();
-    }
-
-    @Override
-    protected ExtendedWebElement getPageOption() {
         throw new NotImplementedException();
     }
 }

@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import com.solvd.carina.demo.mobile.gui.pages.common.ChoosePagePageBase;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractUIObject;
+import org.openqa.selenium.interactions.Actions;
 
 public abstract class HeaderMenuBase extends AbstractUIObject {
 
@@ -22,7 +23,8 @@ public abstract class HeaderMenuBase extends AbstractUIObject {
     protected abstract ChoosePagePageBase getPage();
 
     public ChoosePagePageBase clickHamburgerIcon() {
-        getHamburgerIcon().click();
+        Actions actions = new Actions(getDriver());
+        actions.moveToElement(getHamburgerIcon().getElement(),10,10).click().perform();
         return getPage();
     }
 
