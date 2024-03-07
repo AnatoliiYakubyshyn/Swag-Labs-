@@ -9,7 +9,7 @@ import com.solvd.carina.demo.mobile.gui.pages.common.ProductsPageBase;
 import com.zebrunner.agent.core.annotation.TestCaseKey;
 import com.zebrunner.carina.core.AbstractTest;
 
-public class LoginTest extends AbstractTest {
+public class LoginTest extends BaseTest{
 
     public ProductsPageBase testStandardUser(boolean useAutoFilling) {
         LoginPageBase loginPageBase = initPage(LoginPageBase.class);

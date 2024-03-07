@@ -34,9 +34,27 @@ public class MobileContextUtils implements IDriverPool {
         return driver;
     }
 
-    private void waitForMoreThanOneContextToAppear(WebDriver driver, DriverHelper help) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(Configuration.get(WebDriverConfiguration.Parameter.EXPLICIT_TIMEOUT).get())));
-        wait.until(input -> help.performIgnoreException(((ContextAware) driver)::getContextHandles).size() > 1);
+    private boolean predicateForContext(WebDriver driver,
+                                        View context, View exclude) {
+        DriverHelper help = new DriverHelper();
+        Set<String> contextHandles = help.performIgnoreException(((ContextAware) driver)::getContextHandles);
+        for (String cont : contextHandles) {
+            if (cont.contains(context.getView())) {
+                if (exclude != null && cont.contains(exclude.getView())) {
+                    continue;
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void waitForMoreThanOneContextToAppear(WebDriver driver,
+                                                   View context, View exclude
+    ) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(Configuration.get(WebDriverConfiguration.Parameter.EXPLICIT_TIMEOUT).get())),
+                Duration.ofMillis(100));
+        wait.until(input -> predicateForContext(input, context, exclude));
     }
 
     public void switchMobileContext(View context) {
@@ -45,11 +63,11 @@ public class MobileContextUtils implements IDriverPool {
 
     public void switchMobileContext(View context, View exclude) {
         WebDriver driver = getDriver();
+        waitForMoreThanOneContextToAppear(driver, context, exclude);
         DriverHelper help = new DriverHelper();
         Set<String> contextHandles = help.performIgnoreException(((ContextAware) driver)::getContextHandles);
         String desiredContext = "";
         boolean isContextPresent = false;
-        waitForMoreThanOneContextToAppear(driver, help);
         LOGGER.info("Existing contexts: ");
         for (String cont : contextHandles) {
             if (cont.contains(context.getView())) {
@@ -72,7 +90,9 @@ public class MobileContextUtils implements IDriverPool {
         NATIVE("NATIVE_APP"),
         WEB_CARINA("WEBVIEW_com.solvd.carinademoapplication"),
 
-        WEB_BROWSER("WEBVIEW");
+        WEB_BROWSER("WEBVIEW"),
+
+        WEB_CHROME("WEBVIEW_chrome");
 
         String viewName;
 

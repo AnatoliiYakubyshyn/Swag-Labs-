@@ -17,7 +17,7 @@ public abstract class ChoosePagePageBase extends AbstractPage {
     protected abstract ExtendedWebElement getPageOption();
 
 
-    public ICommonContent choosePage(PageOption pageOption) {
+    public AbstractPage choosePage(PageOption pageOption) {
         getPageOption().format(pageOption.getValue()).click();
         return new PageFactory().getPage(pageOption);
     }

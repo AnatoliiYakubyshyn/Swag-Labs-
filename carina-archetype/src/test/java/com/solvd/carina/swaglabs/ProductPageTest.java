@@ -15,7 +15,7 @@ import com.zebrunner.agent.core.annotation.TestCaseKey;
 import com.zebrunner.carina.core.AbstractTest;
 import org.testng.asserts.SoftAssert;
 
-public class ProductPageTest extends AbstractTest {
+public class ProductPageTest extends BaseTest {
     @Test
     @TestCaseKey("AYA-6")
     public void testSorting() {
