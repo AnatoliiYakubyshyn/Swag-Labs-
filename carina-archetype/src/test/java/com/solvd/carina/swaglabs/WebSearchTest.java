@@ -18,10 +18,6 @@ import java.lang.module.Configuration;
 public class WebSearchTest extends AbstractTest {
 
 
-    private void navigateToWebInIos() {
-        pause(2);
-        getDriver().findElement(By.xpath("//XCUIElementTypeOther[@name='banner']")).click();
-    }
     @Test
     @TestCaseKey("AYA-7")
     public void testWebSearchIsSuccessful() {
@@ -32,10 +28,6 @@ public class WebSearchTest extends AbstractTest {
         ChoosePagePageBase choosePageBase = productsPageBase.getHeaderMenu().clickHamburgerIcon();
         WebViewPageBase webViewPageBase = (WebViewPageBase) choosePageBase.choosePage(PageOption.WEB_VIEW);
         webViewPageBase.visitWebSite(R.TESTDATA.get("url"));
-        if (R.CONFIG.get("capabilities.platformName").equalsIgnoreCase("ios")) {
-            navigateToWebInIos();
-            System.out.println("Hello");
-        }
         contextUtils.switchMobileContext(MobileContextUtils.View.WEB_BROWSER);
         String curUrl = getDriver().getCurrentUrl();
         contextUtils.switchMobileContext(MobileContextUtils.View.NATIVE);
