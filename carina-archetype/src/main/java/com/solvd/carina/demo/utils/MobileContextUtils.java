@@ -6,6 +6,7 @@ import java.util.Set;
 
 import com.zebrunner.carina.utils.config.Configuration;
 import com.zebrunner.carina.webdriver.config.WebDriverConfiguration;
+import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.ContextAware;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
@@ -48,6 +49,7 @@ public class MobileContextUtils implements IDriverPool {
         Set<String> contextHandles = help.performIgnoreException(((ContextAware) driver)::getContextHandles);
         String desiredContext = "";
         boolean isContextPresent = false;
+        waitForMoreThanOneContextToAppear(driver, help);
         LOGGER.info("Existing contexts: ");
         for (String cont : contextHandles) {
             if (cont.contains(context.getView())) {
@@ -70,7 +72,7 @@ public class MobileContextUtils implements IDriverPool {
         NATIVE("NATIVE_APP"),
         WEB_CARINA("WEBVIEW_com.solvd.carinademoapplication"),
 
-        WEB_BROWSER("WEBVIEW_");
+        WEB_BROWSER("WEBVIEW");
 
         String viewName;
 
