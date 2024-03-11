@@ -92,7 +92,9 @@ public class MobileContextUtils implements IDriverPool {
 
         WEB_BROWSER("WEBVIEW"),
 
-        WEB_CHROME("WEBVIEW_chrome");
+        WEB_CHROME("WEBVIEW_chrome"),
+
+        WEB_SAFARI("WEB_safari");
 
         String viewName;
 

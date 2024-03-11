@@ -1,20 +1,17 @@
-package com.solvd.carina.demo.mobile.gui.pages.android;
-
-import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
-import org.openqa.selenium.WebDriver;
+package com.solvd.carina.demo.mobile.gui.pages.ios;
 
 import com.solvd.carina.demo.mobile.gui.pages.common.AboutWebPageBase;
 import com.solvd.carina.demo.utils.MobileContextUtils;
 import com.zebrunner.carina.utils.factory.DeviceType;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.WebDriver;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = AboutWebPageBase.class)
+@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = AboutWebPageBase.class)
 public class AboutWebPage extends AboutWebPageBase {
 
     public AboutWebPage(WebDriver driver) {
         super(driver);
         MobileContextUtils contextUtils = new MobileContextUtils();
-        contextUtils.switchMobileContext(MobileContextUtils.View.WEB_CHROME);
+        contextUtils.switchMobileContext(MobileContextUtils.View.WEB_BROWSER);
         setParametersForOpening();
     }
 

@@ -1,6 +1,7 @@
 package com.solvd.carina.swaglabs;
 
 import com.solvd.carina.demo.mobile.gui.pages.common.AboutWebPageBase;
+import io.appium.java_client.remote.SupportsContextSwitching;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
