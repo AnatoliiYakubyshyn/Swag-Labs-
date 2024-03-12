@@ -31,9 +31,9 @@ public abstract class LoginPageBase extends AbstractPage implements IMobileUtils
         } else {
             swipeUp(3, 1000);
             getAutoFillingOption(userType).click();
+            swipeDown(3, 1000);
         }
         getLoginBtn().click();
-        swipeDown(3, 1000);
         return initPage(getDriver(), ProductsPageBase.class);
     }
 
