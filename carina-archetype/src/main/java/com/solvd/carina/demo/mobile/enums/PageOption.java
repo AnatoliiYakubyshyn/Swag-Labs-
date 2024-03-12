@@ -5,7 +5,9 @@ public enum PageOption {
     PRODUCT_PAGE("ALL ITEMS"),
     WEB_VIEW("WEBVIEW"),
 
-    ABOUT("ABOUT");
+    ABOUT("ABOUT"),
+
+    LOG_OUT("LOGOUT");
 
     private final String value;
 

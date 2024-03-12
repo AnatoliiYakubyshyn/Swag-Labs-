@@ -1,5 +1,6 @@
 package com.solvd.carina.demo.mobile.gui.pages.common;
 
+import com.zebrunner.carina.webdriver.decorator.PageOpeningStrategy;
 import org.openqa.selenium.WebDriver;
 
 import com.solvd.carina.demo.mobile.enums.UserType;
@@ -12,6 +13,8 @@ public abstract class LoginPageBase extends AbstractPage implements IMobileUtils
 
     public LoginPageBase(WebDriver driver) {
         super(driver);
+        setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
+        setUiLoadedMarker(getLoginBtn());
     }
 
     protected abstract ExtendedWebElement getUserNameField();
