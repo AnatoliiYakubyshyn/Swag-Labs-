@@ -27,7 +27,7 @@ public abstract class LoginPageBase extends AbstractPage implements IMobileUtils
 
     protected abstract ExtendedWebElement getMessageElement();
 
-    public ProductsPageBase login(UserType userType, boolean useAutoFilling) {
+    public ProductListPageBase login(UserType userType, boolean useAutoFilling) {
         if (!useAutoFilling) {
             getUserNameField().type(UserService.getUser(userType).getUsername());
             getPasswordField().type(UserService.getUser(userType).getPassword());
@@ -37,7 +37,7 @@ public abstract class LoginPageBase extends AbstractPage implements IMobileUtils
             swipeDown(3, 1000);
         }
         getLoginBtn().click();
-        return initPage(getDriver(), ProductsPageBase.class);
+        return initPage(getDriver(), ProductListPageBase.class);
     }
 
     public boolean isMessageDisplayed(String text) {

@@ -1,14 +1,13 @@
 package com.solvd.carina.demo.mobile.gui.pages.common;
 
 import com.solvd.carina.demo.mobile.enums.PageOption;
-import com.solvd.carina.demo.mobile.gui.factories.PageFactory;
 import org.openqa.selenium.WebDriver;
 
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 
-public abstract class ChoosePagePageBase extends AbstractPage {
-    public ChoosePagePageBase(WebDriver driver) {
+public abstract class ChoosePageBase extends AbstractPage {
+    public ChoosePageBase(WebDriver driver) {
         super(driver);
     }
 
@@ -16,10 +15,22 @@ public abstract class ChoosePagePageBase extends AbstractPage {
 
     protected abstract ExtendedWebElement getPageOption();
 
+    private AbstractPage getPage(PageOption pageOption) {
+        switch (pageOption) {
+            case WEB_VIEW:
+                return initPage(WebViewPageBase.class);
+            case ABOUT:
+                return initPage(AboutWebPageBase.class);
+            case DRAWING:
+                return initPage(DrawPageBase.class);
+            default:
+                return initPage(ProductListPageBase.class);
+        }
+    }
 
     public AbstractPage choosePage(PageOption pageOption) {
         getPageOption().format(pageOption.getValue()).click();
-        return new PageFactory().getPage(pageOption);
+        return getPage(pageOption);
     }
 
     public void closeWindow() {

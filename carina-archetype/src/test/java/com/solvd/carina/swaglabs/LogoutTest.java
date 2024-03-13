@@ -1,12 +1,12 @@
 package com.solvd.carina.swaglabs;
 
+import com.solvd.carina.demo.mobile.gui.pages.common.ChoosePageBase;
 import org.testng.annotations.Test;
 
 import com.zebrunner.agent.core.annotation.TestCaseKey;
 import com.solvd.carina.demo.mobile.enums.PageOption;
 import com.solvd.carina.demo.mobile.gui.pages.common.LoginPageBase;
-import com.solvd.carina.demo.mobile.gui.pages.common.ProductsPageBase;
-import com.solvd.carina.demo.mobile.gui.pages.common.ChoosePagePageBase;
+import com.solvd.carina.demo.mobile.gui.pages.common.ProductListPageBase;
 
 public class LogoutTest extends BaseTest {
 
@@ -14,8 +14,8 @@ public class LogoutTest extends BaseTest {
     @TestCaseKey("AYA-9")
     public void test() {
         LoginTest loginTest = new LoginTest();
-        ProductsPageBase productsPageBase = loginTest.testStandardUser(false);
-        ChoosePagePageBase choosePageBase = productsPageBase.getHeaderMenu().clickHamburgerIcon();
+        ProductListPageBase productsPageBase = loginTest.testStandardUser(false);
+        ChoosePageBase choosePageBase = productsPageBase.getHeaderMenu().clickHamburgerIcon();
         choosePageBase.choosePage(PageOption.LOG_OUT);
         LoginPageBase loginPageBase = initPage(LoginPageBase.class, getDriver());
         loginPageBase.assertPageOpened();

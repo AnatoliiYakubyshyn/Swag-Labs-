@@ -12,9 +12,9 @@ import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
 
-public abstract class ProductsPageBase extends AbstractPage implements IMobileUtils, ICommonContent {
+public abstract class ProductListPageBase extends AbstractPage implements IMobileUtils, ICommonContent {
 
-    public ProductsPageBase(WebDriver driver) {
+    public ProductListPageBase(WebDriver driver) {
         super(driver);
         setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
         setUiLoadedMarker(getMarker());

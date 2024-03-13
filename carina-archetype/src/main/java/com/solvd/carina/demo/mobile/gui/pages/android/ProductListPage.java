@@ -11,14 +11,14 @@ import java.util.List;
 
 import com.solvd.carina.demo.mobile.gui.components.android.SortingComponent;
 import com.solvd.carina.demo.mobile.gui.components.android.ItemComponent;
-import com.solvd.carina.demo.mobile.gui.pages.common.ProductsPageBase;
+import com.solvd.carina.demo.mobile.gui.pages.common.ProductListPageBase;
 import com.solvd.carina.demo.mobile.pojo.Item;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.utils.factory.DeviceType;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = ProductsPageBase.class)
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = ProductListPageBase.class)
 @Getter(AccessLevel.PROTECTED)
-public class ProductsPage extends ProductsPageBase implements IAndroidCommonContentPages {
+public class ProductListPage extends ProductListPageBase implements IAndroidCommonContentPages {
 
     @FindBy(xpath = "//android.widget.TextView[@text='PRODUCTS']")
     private ExtendedWebElement marker;
@@ -35,7 +35,7 @@ public class ProductsPage extends ProductsPageBase implements IAndroidCommonCont
     @FindBy(xpath = "(//android.view.ViewGroup[@content-desc='test-Item'])[%d]")
     private ItemComponent item;
 
-    public ProductsPage(WebDriver driver) {
+    public ProductListPage(WebDriver driver) {
         super(driver);
     }
 

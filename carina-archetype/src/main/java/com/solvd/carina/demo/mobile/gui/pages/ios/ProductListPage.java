@@ -12,15 +12,15 @@ import java.util.List;
 
 import com.solvd.carina.demo.mobile.gui.components.ios.SortingComponent;
 import com.solvd.carina.demo.mobile.gui.components.ios.ItemComponent;
-import com.solvd.carina.demo.mobile.gui.pages.common.ProductsPageBase;
+import com.solvd.carina.demo.mobile.gui.pages.common.ProductListPageBase;
 import com.solvd.carina.demo.mobile.pojo.Item;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.locator.ExtendedFindBy;
 
-@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = ProductsPageBase.class)
+@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = ProductListPageBase.class)
 @Getter(AccessLevel.PROTECTED)
-public class ProductsPage extends ProductsPageBase implements IIOSCommonContentPages {
+public class ProductListPage extends ProductListPageBase implements IIOSCommonContentPages {
 
     @ExtendedFindBy(iosPredicate = "label == 'PRODUCTS'")
     private ExtendedWebElement marker;
@@ -34,7 +34,7 @@ public class ProductsPage extends ProductsPageBase implements IIOSCommonContentP
     @FindBy(xpath = "(//XCUIElementTypeOther[@name='test-Item'])[%d]")
     private ItemComponent item;
 
-    public ProductsPage(WebDriver driver) {
+    public ProductListPage(WebDriver driver) {
         super(driver);
     }
 

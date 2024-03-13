@@ -1,13 +1,12 @@
 package com.solvd.carina.swaglabs;
 
 import com.solvd.carina.demo.mobile.gui.pages.common.AboutWebPageBase;
-import io.appium.java_client.remote.SupportsContextSwitching;
+import com.solvd.carina.demo.mobile.gui.pages.common.ChoosePageBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.solvd.carina.demo.mobile.gui.pages.common.ProductsPageBase;
-import com.solvd.carina.demo.mobile.gui.pages.common.ChoosePagePageBase;
+import com.solvd.carina.demo.mobile.gui.pages.common.ProductListPageBase;
 import com.solvd.carina.demo.mobile.enums.PageOption;
 import com.solvd.carina.demo.mobile.gui.pages.common.WebViewPageBase;
 import com.solvd.carina.demo.utils.MobileContextUtils;
@@ -16,14 +15,14 @@ import com.zebrunner.carina.utils.R;
 
 public class WebSearchTest extends BaseTest {
 
-    private ChoosePagePageBase choosePageBase;
+    private ChoosePageBase choosePageBase;
 
     private MobileContextUtils contextUtils;
 
     @BeforeMethod
     public void commonActions() {
         LoginTest loginTest = new LoginTest();
-        ProductsPageBase productsPageBase = loginTest.testStandardUser(false);
+        ProductListPageBase productsPageBase = loginTest.testStandardUser(false);
         choosePageBase = productsPageBase.getHeaderMenu().clickHamburgerIcon();
         contextUtils = new MobileContextUtils();
     }

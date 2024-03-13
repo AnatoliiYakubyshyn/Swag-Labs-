@@ -6,13 +6,11 @@ import java.util.stream.Collectors;
 
 import com.solvd.carina.demo.mobile.enums.SortOption;
 import com.solvd.carina.demo.mobile.pojo.Item;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.solvd.carina.demo.mobile.gui.pages.common.ProductsPageBase;
+import com.solvd.carina.demo.mobile.gui.pages.common.ProductListPageBase;
 import com.solvd.carina.demo.mobile.gui.components.common.SortingComponentBase;
 import com.zebrunner.agent.core.annotation.TestCaseKey;
-import com.zebrunner.carina.core.AbstractTest;
 import org.testng.asserts.SoftAssert;
 
 public class ProductPageTest extends BaseTest {
@@ -20,7 +18,7 @@ public class ProductPageTest extends BaseTest {
     @TestCaseKey("AYA-6")
     public void testSorting() {
         LoginTest loginTest = new LoginTest();
-        ProductsPageBase productsPageBase = loginTest.testStandardUser(false);
+        ProductListPageBase productsPageBase = loginTest.testStandardUser(false);
         SortingComponentBase sortingComponentBase = productsPageBase.clickSortingIcon();
         sortingComponentBase.chooseItem(SortOption.A_TO_Z);
         List<Item> products = productsPageBase.getListItems();

@@ -5,14 +5,14 @@ import org.testng.annotations.Test;
 
 import com.solvd.carina.demo.mobile.enums.UserType;
 import com.solvd.carina.demo.mobile.gui.pages.common.LoginPageBase;
-import com.solvd.carina.demo.mobile.gui.pages.common.ProductsPageBase;
+import com.solvd.carina.demo.mobile.gui.pages.common.ProductListPageBase;
 import com.zebrunner.agent.core.annotation.TestCaseKey;
 
 public class LoginTest extends BaseTest{
 
-    public ProductsPageBase testStandardUser(boolean useAutoFilling) {
+    public ProductListPageBase testStandardUser(boolean useAutoFilling) {
         LoginPageBase loginPageBase = initPage(LoginPageBase.class);
-        ProductsPageBase productsPageBase = loginPageBase.login(UserType.STANDARD, useAutoFilling);
+        ProductListPageBase productsPageBase = loginPageBase.login(UserType.STANDARD, useAutoFilling);
         Assert.assertTrue(productsPageBase.isPageOpened(), "Product page is not opened");
         return productsPageBase;
     }

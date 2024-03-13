@@ -1,7 +1,7 @@
 package com.solvd.carina.demo.mobile.gui.components.ios;
 
-import com.solvd.carina.demo.mobile.gui.pages.common.ChoosePagePageBase;
-import com.solvd.carina.demo.mobile.gui.pages.ios.ChoosePageBase;
+import com.solvd.carina.demo.mobile.gui.pages.common.ChoosePageBase;
+import com.solvd.carina.demo.mobile.gui.pages.ios.ChoosePage;
 import lombok.AccessLevel;
 import lombok.Getter;
 
@@ -30,7 +30,7 @@ public class HeaderMenu extends HeaderMenuBase {
     }
 
     @Override
-    protected ChoosePagePageBase getPage() {
-        return new ChoosePageBase(getDriver());
+    protected ChoosePageBase getPage() {
+        return new ChoosePage(getDriver());
     }
 }

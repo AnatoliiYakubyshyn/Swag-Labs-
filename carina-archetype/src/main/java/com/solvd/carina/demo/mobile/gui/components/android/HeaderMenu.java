@@ -1,7 +1,6 @@
 package com.solvd.carina.demo.mobile.gui.components.android;
 
-import com.solvd.carina.demo.mobile.gui.pages.android.ChoosePageBase;
-import com.solvd.carina.demo.mobile.gui.pages.common.ChoosePagePageBase;
+
 import lombok.AccessLevel;
 import lombok.Getter;
 
@@ -11,6 +10,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 import com.solvd.carina.demo.mobile.gui.components.common.HeaderMenuBase;
+import com.solvd.carina.demo.mobile.gui.pages.android.ChoosePage;
+import com.solvd.carina.demo.mobile.gui.pages.common.ChoosePageBase;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 
 @Getter(AccessLevel.PROTECTED)
@@ -29,7 +30,7 @@ public class HeaderMenu extends HeaderMenuBase {
     }
 
     @Override
-    protected ChoosePagePageBase getPage() {
-        return new ChoosePageBase(getDriver());
+    protected ChoosePageBase getPage() {
+        return new ChoosePage(getDriver());
     }
 }
