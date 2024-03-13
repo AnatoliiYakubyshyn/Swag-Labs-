@@ -7,7 +7,8 @@ public enum PageOption {
 
     ABOUT("ABOUT"),
 
-    LOG_OUT("LOGOUT");
+    LOG_OUT("LOGOUT"),
+    DRAWING("DRAWING");
 
     private final String value;
 

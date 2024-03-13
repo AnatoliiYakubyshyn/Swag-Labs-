@@ -7,7 +7,6 @@ import com.solvd.carina.demo.mobile.enums.UserType;
 import com.solvd.carina.demo.mobile.gui.pages.common.LoginPageBase;
 import com.solvd.carina.demo.mobile.gui.pages.common.ProductsPageBase;
 import com.zebrunner.agent.core.annotation.TestCaseKey;
-import com.zebrunner.carina.core.AbstractTest;
 
 public class LoginTest extends BaseTest{
 
