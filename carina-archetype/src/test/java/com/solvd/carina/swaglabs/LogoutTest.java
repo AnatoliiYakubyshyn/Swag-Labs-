@@ -13,8 +13,7 @@ public class LogoutTest extends BaseTest {
     @Test
     @TestCaseKey("AYA-9")
     public void test() {
-        LoginTest loginTest = new LoginTest();
-        ProductListPageBase productsPageBase = loginTest.testStandardUser(false);
+        ProductListPageBase productsPageBase = loginAsStandardUser(false);
         ChoosePageBase choosePageBase = productsPageBase.getHeaderMenu().clickHamburgerIcon();
         choosePageBase.choosePage(PageOption.LOG_OUT);
         LoginPageBase loginPageBase = initPage(LoginPageBase.class, getDriver());

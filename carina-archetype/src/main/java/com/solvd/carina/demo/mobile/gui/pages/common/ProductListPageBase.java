@@ -1,7 +1,9 @@
 package com.solvd.carina.demo.mobile.gui.pages.common;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import com.solvd.carina.demo.mobile.enums.SortOption;
 import org.openqa.selenium.WebDriver;
 
 import com.solvd.carina.demo.mobile.gui.components.common.ItemComponentBase;
@@ -11,6 +13,7 @@ import com.zebrunner.carina.webdriver.decorator.PageOpeningStrategy;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
+import org.testng.asserts.SoftAssert;
 
 public abstract class ProductListPageBase extends AbstractPage implements IMobileUtils, ICommonContent {
 
@@ -35,4 +38,12 @@ public abstract class ProductListPageBase extends AbstractPage implements IMobil
     }
 
     public abstract List<Item> getListItems();
+
+    public void checkCorrectSortingResult(SoftAssert softAssert, SortOption sortOption) {
+        SortingComponentBase sortingComponentBase = clickSortingIcon();
+        sortingComponentBase.chooseItem(sortOption);
+        List<Item> products = getListItems();
+        softAssert.assertEquals(products,products.stream().sorted(sortOption.getComparator()).collect(Collectors.toList()),
+                sortOption.getValue()+" is wrong");
+    }
 }

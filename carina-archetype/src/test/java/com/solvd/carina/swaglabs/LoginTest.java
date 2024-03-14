@@ -5,17 +5,9 @@ import org.testng.annotations.Test;
 
 import com.solvd.carina.demo.mobile.enums.UserType;
 import com.solvd.carina.demo.mobile.gui.pages.common.LoginPageBase;
-import com.solvd.carina.demo.mobile.gui.pages.common.ProductListPageBase;
 import com.zebrunner.agent.core.annotation.TestCaseKey;
 
-public class LoginTest extends BaseTest{
-
-    public ProductListPageBase testStandardUser(boolean useAutoFilling) {
-        LoginPageBase loginPageBase = initPage(LoginPageBase.class);
-        ProductListPageBase productsPageBase = loginPageBase.login(UserType.STANDARD, useAutoFilling);
-        Assert.assertTrue(productsPageBase.isPageOpened(), "Product page is not opened");
-        return productsPageBase;
-    }
+public class LoginTest extends BaseTest {
 
     public void testLockedOutUser(boolean useAutoFilling) {
         LoginPageBase loginPageBase = initPage(LoginPageBase.class);
@@ -26,13 +18,13 @@ public class LoginTest extends BaseTest{
     @Test
     @TestCaseKey("AYA-1")
     public void testStandardUserWithoutAutoFilling() {
-        testStandardUser(false);
+        loginAsStandardUser(false);
     }
 
     @Test
     @TestCaseKey("AYA-2")
     public void testStandardUserWithAutoFilling() {
-        testStandardUser(true);
+        loginAsStandardUser(true);
     }
 
     @Test

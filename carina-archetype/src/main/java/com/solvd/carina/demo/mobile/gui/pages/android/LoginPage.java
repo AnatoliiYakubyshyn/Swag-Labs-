@@ -1,5 +1,6 @@
 package com.solvd.carina.demo.mobile.gui.pages.android;
 
+import com.zebrunner.carina.webdriver.locator.ExtendedFindBy;
 import lombok.AccessLevel;
 import lombok.Getter;
 
@@ -16,13 +17,13 @@ import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 @Getter(AccessLevel.PROTECTED)
 public class LoginPage extends LoginPageBase {
 
-    @FindBy(xpath = "//android.widget.EditText[@content-desc='test-Username']")
+    @ExtendedFindBy(accessibilityId = "test-Username")
     private ExtendedWebElement userNameField;
 
-    @FindBy(xpath = "//android.widget.EditText[@content-desc='test-Password']")
+    @ExtendedFindBy( accessibilityId= "test-Password")
     private ExtendedWebElement passwordField;
 
-    @FindBy(xpath = "//android.view.ViewGroup[@content-desc='test-LOGIN']")
+    @ExtendedFindBy(accessibilityId = "test-LOGIN")
     private ExtendedWebElement loginBtn;
 
     @FindBy(xpath = "//android.view.ViewGroup[@content-desc='test-%s']/android.widget.TextView")
