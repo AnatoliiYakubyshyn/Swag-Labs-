@@ -1,6 +1,5 @@
 package com.solvd.carina.demo.mobile.gui.pages.ios;
 
-import com.zebrunner.carina.webdriver.locator.ExtendedFindBy;
 import org.openqa.selenium.By;
 
 import com.solvd.carina.demo.mobile.gui.components.common.HeaderMenuBase;

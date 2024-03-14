@@ -1,6 +1,5 @@
 package com.solvd.carina.demo.mobile.gui.pages.android;
 
-import com.zebrunner.carina.webdriver.locator.ExtendedFindBy;
 import lombok.AccessLevel;
 import lombok.Getter;
 
@@ -12,6 +11,7 @@ import com.solvd.carina.demo.mobile.gui.pages.common.LoginPageBase;
 import com.solvd.carina.demo.mobile.services.UserService;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
+import com.zebrunner.carina.webdriver.locator.ExtendedFindBy;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = LoginPageBase.class)
 @Getter(AccessLevel.PROTECTED)

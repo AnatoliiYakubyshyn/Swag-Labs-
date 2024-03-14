@@ -6,8 +6,6 @@ import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 
-import java.time.Duration;
-
 public abstract class DrawPageBase extends AbstractPage implements ICommonContent, IMobileUtils {
     public DrawPageBase(WebDriver driver) {
         super(driver);

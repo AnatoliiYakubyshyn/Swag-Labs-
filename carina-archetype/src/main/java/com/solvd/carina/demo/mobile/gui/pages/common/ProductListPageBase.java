@@ -3,17 +3,18 @@ package com.solvd.carina.demo.mobile.gui.pages.common;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.solvd.carina.demo.mobile.enums.SortOption;
+import org.testng.asserts.SoftAssert;
 import org.openqa.selenium.WebDriver;
 
 import com.solvd.carina.demo.mobile.gui.components.common.ItemComponentBase;
 import com.solvd.carina.demo.mobile.gui.components.common.SortingComponentBase;
+import com.solvd.carina.demo.mobile.enums.SortOption;
 import com.solvd.carina.demo.mobile.pojo.Item;
 import com.zebrunner.carina.webdriver.decorator.PageOpeningStrategy;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
-import org.testng.asserts.SoftAssert;
+
 
 public abstract class ProductListPageBase extends AbstractPage implements IMobileUtils, ICommonContent {
 
