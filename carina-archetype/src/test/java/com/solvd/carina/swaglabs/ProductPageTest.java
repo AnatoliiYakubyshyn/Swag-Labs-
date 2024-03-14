@@ -11,8 +11,7 @@ public class ProductPageTest extends BaseTest {
     @Test
     @TestCaseKey("AYA-6")
     public void testSorting() {
-        LoginTest loginTest = new LoginTest();
-        ProductListPageBase productsPageBase = loginTest.loginAsStandardUser(false);
+        ProductListPageBase productsPageBase = loginAsStandardUser(false);
         SoftAssert softAssert = new SoftAssert();
         SortOption[] sortOptions = {SortOption.A_TO_Z, SortOption.Z_TO_A, SortOption.LOW_TO_HIGH,
                 SortOption.HIGH_TO_LOW};
